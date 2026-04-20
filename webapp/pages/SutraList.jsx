@@ -14,31 +14,13 @@ export default function SutraList() {
   const ALL = '__all__'
   const initialCategory = searchParams.get('category') || ALL
   const [activeCategory, setActiveCategory] = useState(initialCategory)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchOpen, setSearchOpen] = useState(false)
-  const [sortOrder, setSortOrder] = useState('default')
   const t = useT()
 
   const viewCounts = useMemo(() => getAllViewCounts(), [])
 
   const filtered = useMemo(() => {
-    let list = SUTRAS.filter((s) => {
-    const matchCategory = activeCategory === ALL || s.category === activeCategory
-    if (!searchQuery.trim()) return matchCategory
-    const q = searchQuery.trim().toLowerCase()
-    const matchSearch =
-      s.titleKo.toLowerCase().includes(q) ||
-      (s.titleHanja && s.titleHanja.toLowerCase().includes(q)) ||
-      s.category.toLowerCase().includes(q)
-      return matchCategory && matchSearch
-    })
-    if (sortOrder === 'views') {
-      list = [...list].sort((a, b) => (viewCounts[b.slug] || 0) - (viewCounts[a.slug] || 0))
-    } else if (sortOrder === 'comments') {
-      list = [...list].sort((a, b) => getCommentCount('sutra', b.slug) - getCommentCount('sutra', a.slug))
-    }
-    return list
-  }, [activeCategory, searchQuery, sortOrder, viewCounts])
+    return SUTRAS.filter((s) => activeCategory === ALL || s.category === activeCategory)
+  }, [activeCategory])
 
   return (
     <div className="page">
@@ -54,45 +36,9 @@ export default function SutraList() {
             ←
           </button>
         }
-        right={
-          <button
-            className="toolbar-btn"
-            onClick={() => { setSearchOpen((v) => !v); setSearchQuery('') }}
-            aria-label="검색"
-          >
-            {searchOpen ? '✕' : '🔍'}
-          </button>
-        }
       />
 
       <div className="page-content list-content">
-        {searchOpen && (
-          <input
-            className="search-input"
-            type="search"
-            placeholder="경전명, 한자, 계열 검색…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            autoFocus
-          />
-        )}
-
-        <div className="sort-row">
-          {[
-            { value: 'default', label: '기본순' },
-            { value: 'views', label: '조회수순' },
-            { value: 'comments', label: '댓글수순' },
-          ].map((opt) => (
-            <button
-              key={opt.value}
-              className={`sort-btn ${sortOrder === opt.value ? 'sort-btn--active' : ''}`}
-              onClick={() => setSortOrder(opt.value)}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-
         <div className="tab-scroll">
           {[{ value: ALL, label: t('sutra_list_all') }, ...CATEGORIES.map((c) => ({ value: c, label: c }))].map((cat) => (
             <button
