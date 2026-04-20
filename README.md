@@ -90,28 +90,35 @@ npm run build
   - [x] 계열별 타일 그리드 (3열), 경전별 고유 이모지
   - [x] 흰색/하늘색/검정/회색 컬러 시스템, 다크 모드 지원
   - [x] 한국어/영어 다국어 지원
-  - [ ] 한자 훈음 인라인 툴팁 UI
-  - [ ] 조회수 카운트 (로컬 SQLite)
+  - [x] 한자 훈음 인라인 툴팁 UI (GlossaryText 컴포넌트)
+  - [x] 조회수 카운트 (localStorage 기반)
+  - [x] No-Cache 헤더 + OG 태그 기본 적용
+  - [x] 경전 상세 동적 OG 태그 (react-helmet-async)
 
 - Phase 2 — 소통 기능
-  - [ ] 더미 댓글 API (로컬 SQLite 저장)
-  - [ ] 경전 단위 / 단락 단위 댓글 UI
-  - [ ] 댓글수 표기 및 인기순 정렬
+  - [x] 더미 댓글 API (localStorage 저장)
+  - [x] 경전 단위 / 단락 단위 댓글 UI (인라인 토글)
+  - [x] 댓글수 표기 (경전 목록 카드)
 
 - Phase 3 — TTS 오디오북
   - [x] Web Speech API TTS 연동
   - [x] 하단 고정 TTS 플레이어 (단락 하이라이트, 재생 속도 조절)
   - [x] 오디오북 탭 구현
 
-- Phase 4 — 회원 기능
-  - [ ] Supabase Auth 연동 (이메일, 소셜 로그인)
-  - [ ] 북마크, 읽기 기록, 설정 저장
+- Phase 4 — 회원 기능 (더미 단계)
+  - [x] 더미 Auth API (localStorage 기반 로그인/로그아웃)
+  - [x] 로그인 화면 구현 (이메일 + 비밀번호 폼)
+  - [x] 북마크 더미 기능 (경전 상세 툴바 북마크 버튼)
+  - [x] 북마크 목록 화면 구현
+  - [ ] Supabase Auth 실 연동 (이메일, 소셜 로그인)
+  - [ ] 읽기 기록, 커스텀 설정 Supabase 저장
 
 - Phase 5 — 고도화
-  - [ ] SSR / Pre-rendering (동적 OG 태그)
+  - [ ] SSR / Pre-rendering (동적 OG 태그 완전 지원)
   - [ ] 전문 검색 (경전명, 내용, 한자)
   - [ ] PWA (오프라인 읽기)
   - [ ] 외부 TTS API 연동 (고품질 음성)
+  - [ ] 소셜 로그인 (Google, Kakao)
 
 ## 참고 출처
 
