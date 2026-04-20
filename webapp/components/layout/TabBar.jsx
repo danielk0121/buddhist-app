@@ -1,15 +1,17 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useT } from '../../i18n/useT'
 import './TabBar.css'
-
-const TABS = [
-  { path: '/',         label: '경전' },
-  { path: '/audio',    label: '오디오북' },
-  { path: '/settings', label: '설정' },
-]
 
 export default function TabBar() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const t = useT()
+
+  const TABS = [
+    { path: '/',         label: t('tab_sutra') },
+    { path: '/audio',    label: t('tab_audio') },
+    { path: '/settings', label: t('tab_settings') },
+  ]
 
   function isActive(path) {
     if (path === '/') return pathname === '/' || pathname === '/list' || pathname.startsWith('/sutra')

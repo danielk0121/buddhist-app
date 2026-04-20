@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Toolbar from '../components/layout/Toolbar'
+import { useT } from '../i18n/useT'
 import { SUTRAS } from '../assets/data/sutras'
 import './Home.css'
 
@@ -23,6 +24,7 @@ const CATEGORY_EMOJI = {
 
 export default function Home() {
   const navigate = useNavigate()
+  const t = useT()
 
   return (
     <div className="page">
@@ -39,7 +41,7 @@ export default function Home() {
       <div className="page-content">
 
         <section className="home-section">
-          <h2 className="home-section-title">전체 경전</h2>
+          <h2 className="home-section-title">{t('home_all_sutras')}</h2>
           <ul className="sutra-tile-grid">
             {SUTRAS.map((sutra) => (
               <li key={sutra.id}>

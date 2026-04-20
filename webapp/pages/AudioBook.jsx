@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import Toolbar from '../components/layout/Toolbar'
 import TTSPlayer from '../components/tts/TTSPlayer'
 import { useTTS } from '../context/TTSContext'
+import { useT } from '../i18n/useT'
 import { SUTRAS } from '../assets/data/sutras'
 import { getParagraphs } from '../assets/data/paragraphs'
 import './AudioBook.css'
@@ -12,18 +13,19 @@ export default function AudioBook() {
   const navigate = useNavigate()
   const { currentIdx, currentSlug, playing, speak, stop, paragraphs } = useTTS()
 
+  const t = useT()
   const nowSutra = currentSlug ? SUTRAS.find((s) => s.slug === currentSlug) : null
   const nowParagraphs = currentSlug ? paragraphs.current : getParagraphs(RECOMMENDED[0])
 
   return (
     <div className="page page--with-tts">
-      <Toolbar title="오디오북" />
+      <Toolbar title={t('audio_title')} />
 
       <div className="page-content">
 
         {nowSutra && currentIdx !== null ? (
           <section className="audio-now">
-            <p className="audio-now__label">재생 중</p>
+            <p className="audio-now__label">{t('audio_now_playing')}</p>
             <div className="audio-now__card">
               <span className="audio-now__icon">TTS</span>
               <div className="audio-now__info">
@@ -32,18 +34,18 @@ export default function AudioBook() {
                   {nowParagraphs[currentIdx]?.section ?? ''} · {playing ? '재생 중' : '일시정지'}
                 </p>
               </div>
-              <button className="audio-stop-btn" onClick={stop}>■ 정지</button>
+              <button className="audio-stop-btn" onClick={stop}>{t('audio_stop')}</button>
             </div>
           </section>
         ) : (
           <section className="audio-intro">
             <div className="audio-intro__icon">오디오북</div>
-            <p className="audio-intro__text">아래 경전을 선택해 바로 들어보세요.</p>
+            <p className="audio-intro__text">{t('audio_select_prompt')}</p>
           </section>
         )}
 
         <section className="audio-section">
-          <h2 className="audio-section-title">바로 듣기</h2>
+          <h2 className="audio-section-title">{t('audio_listen')}</h2>
           <ul className="audio-list">
             {RECOMMENDED.map((slug) => {
               const sutra = SUTRAS.find((s) => s.slug === slug)
@@ -66,7 +68,7 @@ export default function AudioBook() {
                       onClick={() => speak(paras, 0, slug)}
                       aria-label={`${sutra.titleKo} TTS 재생`}
                     >
-                      {isPlaying && playing ? '정지' : '재생'}
+                      {isPlaying && playing ? t('audio_pause') : t('audio_play')}
                     </button>
                   </div>
                 </li>
@@ -76,12 +78,12 @@ export default function AudioBook() {
         </section>
 
         <section className="audio-section">
-          <h2 className="audio-section-title">TTS 안내</h2>
+          <h2 className="audio-section-title">{t('audio_guide_title')}</h2>
           <ul className="audio-guide-list">
-            <li>브라우저 내장 Web Speech API를 사용합니다.</li>
-            <li>재생 속도는 설정 화면에서 조절할 수 있습니다 (0.5x ~ 2.0x).</li>
-            <li>경전 상세 화면에서 특정 단락부터 재생할 수 있습니다.</li>
-            <li>재생 중 단락은 금색 테두리로 표시됩니다.</li>
+            <li>{t('audio_guide_1')}</li>
+            <li>{t('audio_guide_2')}</li>
+            <li>{t('audio_guide_3')}</li>
+            <li>{t('audio_guide_4')}</li>
           </ul>
         </section>
 

@@ -1,8 +1,10 @@
 import { useTTS } from '../../context/TTSContext'
+import { useT } from '../../i18n/useT'
 import './TTSPlayer.css'
 
 export default function TTSPlayer({ paragraphs }) {
   const { playing, currentIdx, speak, pause, resume, stop, prev, next } = useTTS()
+  const t = useT()
   const active = currentIdx !== null
 
   return (
@@ -12,28 +14,28 @@ export default function TTSPlayer({ paragraphs }) {
         onClick={prev}
         disabled={!active || currentIdx <= 0}
         aria-label="이전 단락"
-      >이전</button>
+      >{t('audio_prev')}</button>
 
       {!active ? (
-        <button className="tts-btn tts-btn--play" onClick={() => speak(paragraphs, 0)} aria-label="재생">
-          TTS 재생
+        <button className="tts-btn tts-btn--play" onClick={() => speak(paragraphs, 0)} aria-label={t('audio_tts_play')}>
+          {t('audio_tts_play')}
         </button>
       ) : playing ? (
-        <button className="tts-btn tts-btn--play" onClick={pause} aria-label="일시정지">일시정지</button>
+        <button className="tts-btn tts-btn--play" onClick={pause} aria-label={t('audio_pause')}>{t('audio_pause')}</button>
       ) : (
-        <button className="tts-btn tts-btn--play" onClick={resume} aria-label="계속 재생">계속</button>
+        <button className="tts-btn tts-btn--play" onClick={resume} aria-label={t('audio_resume')}>{t('audio_resume')}</button>
       )}
 
       <button
         className="tts-btn"
         onClick={next}
         disabled={!active || currentIdx >= paragraphs.length - 1}
-        aria-label="다음 단락"
-      >다음</button>
+        aria-label={t('audio_next')}
+      >{t('audio_next')}</button>
 
       {active && (
         <>
-          <button className="tts-btn" onClick={stop} aria-label="정지">정지</button>
+          <button className="tts-btn" onClick={stop} aria-label={t('audio_stop')}>{t('audio_stop')}</button>
           <span className="tts-info">{currentIdx + 1}/{paragraphs.length}</span>
         </>
       )}

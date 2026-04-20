@@ -5,6 +5,7 @@ import Toolbar from '../components/layout/Toolbar'
 import CommentBox from '../components/comment/CommentBox'
 import TTSPlayer from '../components/tts/TTSPlayer'
 import { useTTS } from '../context/TTSContext'
+import { useT } from '../i18n/useT'
 import { SUTRAS } from '../assets/data/sutras'
 import { getParagraphs } from '../assets/data/paragraphs'
 import './SutraDetail.css'
@@ -37,6 +38,7 @@ function ParagraphBlock({ para, isActive, onPlayFrom }) {
 export default function SutraDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const t = useT()
   const sutra = SUTRAS.find((s) => s.slug === slug)
   const paragraphs = getParagraphs(slug)
   const { currentIdx, speak, stop } = useTTS()
@@ -73,7 +75,7 @@ export default function SutraDetail() {
       <Toolbar
         title={sutra.titleKo}
         left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}
-        right={<button className="toolbar-btn" onClick={() => navigate('/settings')} aria-label="설정">설정</button>}
+        right={<button className="toolbar-btn" onClick={() => navigate('/settings')} aria-label={t('settings')}>{t('settings')}</button>}
       />
 
       <div className="page-content">
@@ -99,7 +101,7 @@ export default function SutraDetail() {
         <div className="divider" />
 
         <section className="sutra-comment-section">
-          <h3 className="sutra-comment-title">경전 전체 댓글</h3>
+          <h3 className="sutra-comment-title">{t('sutra_comments_title')}</h3>
           <CommentBox targetType="sutra" targetId={slug} />
         </section>
 

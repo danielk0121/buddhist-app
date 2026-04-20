@@ -1,34 +1,42 @@
 import { useNavigate } from 'react-router-dom'
 import Toolbar from '../components/layout/Toolbar'
 import { useSettings } from '../context/SettingsContext'
+import { useT } from '../i18n/useT'
 import './Settings.css'
 
-const THEME_OPTIONS = [
-  { value: 'light', label: '라이트' },
-  { value: 'dark',  label: '다크' },
-  { value: 'system', label: '시스템' },
-]
-
-const FONT_OPTIONS = [
-  { value: 'sm', label: '작게' },
-  { value: 'md', label: '보통' },
-  { value: 'lg', label: '크게' },
-]
 
 export default function Settings() {
   const navigate = useNavigate()
   const { settings, set } = useSettings()
+  const t = useT()
+
+  const THEME_OPTIONS = [
+    { value: 'light',  label: t('settings_theme_light') },
+    { value: 'dark',   label: t('settings_theme_dark') },
+    { value: 'system', label: t('settings_theme_system') },
+  ]
+
+  const FONT_OPTIONS = [
+    { value: 'sm', label: t('settings_font_sm') },
+    { value: 'md', label: t('settings_font_md') },
+    { value: 'lg', label: t('settings_font_lg') },
+  ]
+
+  const LANG_OPTIONS = [
+    { value: 'ko', label: t('settings_lang_ko') },
+    { value: 'en', label: t('settings_lang_en') },
+  ]
 
   return (
     <div className="page">
       <Toolbar
-        title="설정"
-        left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}
+        title={t('settings_title')}
+        left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label={t('back')}>←</button>}
       />
       <div className="page-content">
 
         <section className="settings-section">
-          <h2 className="settings-section-title">테마</h2>
+          <h2 className="settings-section-title">{t('settings_theme')}</h2>
           <div className="option-group">
             {THEME_OPTIONS.map((opt) => (
               <button
@@ -45,7 +53,7 @@ export default function Settings() {
         <div className="divider" />
 
         <section className="settings-section">
-          <h2 className="settings-section-title">글자 크기</h2>
+          <h2 className="settings-section-title">{t('settings_font')}</h2>
           <div className="option-group">
             {FONT_OPTIONS.map((opt) => (
               <button
@@ -62,7 +70,7 @@ export default function Settings() {
         <div className="divider" />
 
         <section className="settings-section">
-          <h2 className="settings-section-title">TTS 속도 — {settings.ttsSpeed.toFixed(1)}x</h2>
+          <h2 className="settings-section-title">{t('settings_tts_speed')} — {settings.ttsSpeed.toFixed(1)}x</h2>
           <input
             type="range"
             min="0.5"
@@ -81,8 +89,25 @@ export default function Settings() {
         <div className="divider" />
 
         <section className="settings-section">
+          <h2 className="settings-section-title">{t('settings_language')}</h2>
+          <div className="option-group">
+            {LANG_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                className={`option-btn ${settings.lang === opt.value ? 'option-btn--active' : ''}`}
+                onClick={() => set('lang', opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <div className="divider" />
+
+        <section className="settings-section">
           <button className="about-link" onClick={() => navigate('/about')}>
-            개발자 정보
+            {t('settings_about')}
           </button>
         </section>
 

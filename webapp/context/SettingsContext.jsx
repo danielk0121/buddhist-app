@@ -8,6 +8,7 @@ const defaults = {
   theme: 'light',   // 'light' | 'dark' | 'system'
   fontSize: 'md',   // 'sm' | 'md' | 'lg'
   ttsSpeed: 1.0,
+  lang: 'ko',       // 'ko' | 'en'
 }
 
 function reducer(state, action) {
