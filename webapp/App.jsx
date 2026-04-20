@@ -16,7 +16,7 @@ const NO_TABBAR = ['/about']
 function AppToolbar() {
   return (
     <Toolbar
-      title={<>경필 (經筆)<br />경전 수필</>}
+      title={<>경필 (經筆)<span className="toolbar__subtitle">경전 수필</span></>}
     />
   )
 }
