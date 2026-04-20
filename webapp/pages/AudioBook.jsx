@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import Toolbar from '../components/layout/Toolbar'
 import TTSPlayer from '../components/tts/TTSPlayer'
 import { useTTS } from '../context/TTSContext'
 import { useT } from '../i18n/useT'
@@ -35,8 +34,6 @@ export default function AudioBook() {
 
   return (
     <div className="page page--with-tts">
-      <Toolbar title={t('audio_title')} />
-
       <div className="page-content">
 
         {nowSutra && currentIdx !== null && (

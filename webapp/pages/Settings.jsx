@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import Toolbar from '../components/layout/Toolbar'
 import { useSettings } from '../context/SettingsContext'
 import { useT } from '../i18n/useT'
 import './Settings.css'
@@ -29,10 +28,6 @@ export default function Settings() {
 
   return (
     <div className="page">
-      <Toolbar
-        title={t('settings_title')}
-        left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label={t('back')}>←</button>}
-      />
       <div className="page-content">
 
         <section className="settings-section">

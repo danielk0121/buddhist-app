@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import Toolbar from '../components/layout/Toolbar'
 import { useT } from '../i18n/useT'
 import { SUTRAS } from '../assets/data/sutras'
 import './Home.css'
@@ -28,16 +27,6 @@ export default function Home() {
 
   return (
     <div className="page">
-      <Toolbar
-        title="경필 (經筆)"
-        right={
-          <button className="toolbar-btn toolbar-btn--menu" onClick={() => navigate('/list')} aria-label="경전 목록">
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
-          </button>
-        }
-      />
       <div className="page-content">
 
         <section className="home-section">
