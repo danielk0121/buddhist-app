@@ -116,7 +116,7 @@ npm run build
 - Phase 5 — 고도화
   - [ ] SSR / Pre-rendering (동적 OG 태그 완전 지원)
   - [ ] 전문 검색 (경전명, 내용, 한자)
-  - [ ] PWA (오프라인 읽기)
+  - [x] PWA (오프라인 읽기) — vite-plugin-pwa, Service Worker, manifest
   - [ ] 외부 TTS API 연동 (고품질 음성)
   - [ ] 소셜 로그인 (Google, Kakao)
 
