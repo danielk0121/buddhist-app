@@ -8,10 +8,10 @@ export async function loadDb() {
   if (_db) return _db
 
   const SQL = await initSqlJs({
-    locateFile: () => '/sql-wasm.wasm',
+    locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
   })
 
-  const res = await fetch('/sutra.db')
+  const res = await fetch(`${import.meta.env.BASE_URL}sutra.db`)
   const buf = await res.arrayBuffer()
   _db = new SQL.Database(new Uint8Array(buf))
   return _db
