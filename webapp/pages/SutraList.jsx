@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Toolbar from '../components/layout/Toolbar'
 import { useT } from '../i18n/useT'
 import { CATEGORIES, SUTRAS } from '../assets/data/sutras'
+import { getAllViewCounts } from '../utils/viewCount'
 import './SutraList.css'
 
 export default function SutraList() {
@@ -13,6 +14,8 @@ export default function SutraList() {
   const initialCategory = searchParams.get('category') || ALL
   const [activeCategory, setActiveCategory] = useState(initialCategory)
   const t = useT()
+
+  const viewCounts = useMemo(() => getAllViewCounts(), [])
 
   const filtered = SUTRAS.filter((s) =>
     activeCategory === ALL || s.category === activeCategory
@@ -57,6 +60,9 @@ export default function SutraList() {
                 <div className="sutra-card__title">{s.titleKo}</div>
                 <div className="sutra-card__hanja">{s.titleHanja}</div>
                 <div className="sutra-card__category">{s.category}</div>
+                {viewCounts[s.slug] > 0 && (
+                  <div className="sutra-card__views">조회 {viewCounts[s.slug].toLocaleString()}</div>
+                )}
               </button>
             </li>
           ))}

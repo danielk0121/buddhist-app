@@ -8,6 +8,7 @@ import { useTTS } from '../context/TTSContext'
 import { useT } from '../i18n/useT'
 import { useDB } from '../context/DBContext'
 import { SUTRAS } from '../assets/data/sutras'
+import { incrementViewCount } from '../utils/viewCount'
 import './SutraDetail.css'
 
 function ParagraphBlock({ para, isActive, onPlayFrom }) {
@@ -45,8 +46,9 @@ export default function SutraDetail() {
   const { currentIdx, speak, stop } = useTTS()
 
   useEffect(() => {
+    if (sutra) incrementViewCount(slug)
     return () => stop()
-  }, [slug, stop])
+  }, [slug]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!sutra) {
     return (
