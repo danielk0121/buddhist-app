@@ -1,5 +1,11 @@
 # 불경 에세이
 
+[![Deploy](https://github.com/danielk0121/buddhist-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/danielk0121/buddhist-app/actions/workflows/deploy.yml)
+
+**웹앱 바로가기: [https://danielk0121.github.io/buddhist-app/](https://danielk0121.github.io/buddhist-app/)**
+
+---
+
 한문·고어로 된 불경을 현대 한국어 수필 형태로 재구성하여, 누구나 쉽게 읽고 이해할 수 있는 불교 경전 서비스.
 
 > **저작권 고지**
