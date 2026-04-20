@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import TabBar from './components/layout/TabBar'
 import Toolbar from './components/layout/Toolbar'
 import Home from './pages/Home'
@@ -14,23 +14,7 @@ const TAB_PATHS = ['/', '/audio', '/settings']
 const NO_TABBAR = ['/about']
 
 function AppToolbar() {
-  const navigate = useNavigate()
-  return (
-    <Toolbar
-      title="경필 (經筆)"
-      right={
-        <button
-          className="toolbar-btn toolbar-btn--menu"
-          onClick={() => navigate('/list')}
-          aria-label="경전 목록"
-        >
-          <span className="hamburger-bar" />
-          <span className="hamburger-bar" />
-          <span className="hamburger-bar" />
-        </button>
-      }
-    />
-  )
+  return <Toolbar title="경필 (經筆) - 경전 수필" />
 }
 
 export default function App() {
