@@ -3,26 +3,9 @@ import TTSPlayer from '../components/tts/TTSPlayer'
 import { useTTS } from '../context/TTSContext'
 import { useT } from '../i18n/useT'
 import { SUTRAS } from '../assets/data/sutras'
+import { SUTRA_EMOJI } from '../assets/data/sutraEmoji'
 import { getParagraphs } from '../assets/data/paragraphs'
 import './AudioBook.css'
-
-const CATEGORY_EMOJI = {
-  '반야 계열':       '💎',
-  '법화 계열':       '🌸',
-  '화엄 계열':       '🌿',
-  '정토경전':        '🪷',
-  '여래장·유식 계열': '🔮',
-  '대승 집성':       '📚',
-  '재가·효 계열':    '🏡',
-  '보살계·계율':     '⚖️',
-  '지장·약사 계열':  '🍃',
-  '미륵 계열':       '🌅',
-  '밀교경전':        '🕯️',
-  '의식·다라니':     '📿',
-  '아함경전':        '🍎',
-  '팔리어·아함':     '🌾',
-  '팔리어 경전':     '🌱',
-}
 
 export default function AudioBook() {
   const navigate = useNavigate()
@@ -61,7 +44,7 @@ export default function AudioBook() {
                     >
                       <div className="sutra-tile__cover">
                         <span className="sutra-tile__cover-num">{idx + 1}</span>
-                        <span className="sutra-tile__cover-symbol">{CATEGORY_EMOJI[sutra.category] ?? '經'}</span>
+                        <span className="sutra-tile__cover-symbol">{SUTRA_EMOJI[sutra.slug] ?? '📄'}</span>
                         <span className="sutra-tile__cover-title">{sutra.titleKo}</span>
                       </div>
                       <div className="sutra-tile__info">
