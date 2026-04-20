@@ -12,15 +12,11 @@ export default function SutraList() {
   const ALL = '__all__'
   const initialCategory = searchParams.get('category') || ALL
   const [activeCategory, setActiveCategory] = useState(initialCategory)
-  const [query, setQuery] = useState('')
-  const [showSearch, setShowSearch] = useState(false)
   const t = useT()
 
-  const filtered = SUTRAS.filter((s) => {
-    const matchCategory = activeCategory === ALL || s.category === activeCategory
-    const matchQuery = !query || s.titleKo.includes(query) || s.titleHanja.includes(query)
-    return matchCategory && matchQuery
-  })
+  const filtered = SUTRAS.filter((s) =>
+    activeCategory === ALL || s.category === activeCategory
+  )
 
   return (
     <div className="page">
@@ -36,25 +32,9 @@ export default function SutraList() {
             ←
           </button>
         }
-        right={
-          <button className="toolbar-btn" onClick={() => setShowSearch((v) => !v)} aria-label={t('search')}>
-            {t('search')}
-          </button>
-        }
       />
 
       <div className="page-content list-content">
-        {showSearch && (
-          <input
-            className="search-input"
-            type="search"
-            placeholder={t('sutra_list_search_placeholder')}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            autoFocus
-          />
-        )}
-
         <div className="tab-scroll">
           {[{ value: ALL, label: t('sutra_list_all') }, ...CATEGORIES.map((c) => ({ value: c, label: c }))].map((cat) => (
             <button
