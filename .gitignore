@@ -36,3 +36,4 @@ logs/
 # Temp
 *.tmp
 *.bak
+/.playwright-mcp/

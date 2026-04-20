@@ -9,78 +9,110 @@
   margin-bottom: var(--space-md);
 }
 
-/* 인기 경전 TOP 5 */
-.top-list {
+/* ── 인기 경전 TOP 5 — 가로 스크롤 카드 ── */
+.top-scroll {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  /* 스크롤바 숨김 */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.top-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.top-card {
+  flex-shrink: 0;
+  width: 120px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-xs);
-}
-
-.top-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-sm);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  text-align: left;
-  transition: background 0.15s;
+  border-radius: 12px;
   cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  text-align: left;
 }
 
-.top-item:hover { background: var(--color-surface-variant); }
+.top-card:hover {
+  background: var(--color-surface-variant);
+  box-shadow: var(--shadow-md);
+}
 
-.top-rank {
-  font-size: var(--font-size-lg);
+.top-card__rank {
+  font-size: var(--font-size-xl);
   font-weight: 800;
   color: var(--color-accent);
-  min-width: 24px;
+  line-height: 1;
 }
 
-.top-title {
-  font-size: var(--font-size-base);
+.top-card__title {
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text);
-  flex: 1;
+  line-height: 1.3;
 }
 
-.top-hanja {
-  font-size: var(--font-size-sm);
+.top-card__hanja {
+  font-size: 0.7rem;
   color: var(--color-text-hint);
 }
 
-/* 계열별 경전 */
-.category-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+/* ── 계열별 경전 — 2열 타일 그리드 ── */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.category-item {
+.category-tile {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   padding: var(--space-md);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  text-align: left;
-  transition: background 0.15s;
+  border-radius: 12px;
   cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, box-shadow 0.15s;
+  min-height: 88px;
 }
 
-.category-item:hover { background: var(--color-surface-variant); }
-
-.category-name {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
+.category-tile:hover {
+  background: var(--color-surface-variant);
+  box-shadow: var(--shadow-sm);
 }
 
-.category-count {
+.category-tile__icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.category-tile__name {
   font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.category-tile__count {
+  font-size: 0.72rem;
   color: var(--color-text-hint);
 }
 
