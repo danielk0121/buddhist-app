@@ -1,0 +1,59 @@
+:root {
+  /* 색상 — 라이트 모드 */
+  --color-bg: #fdf8f0;
+  --color-surface: #ffffff;
+  --color-surface-variant: #f5ede0;
+  --color-border: #e0d4c0;
+  --color-primary: #2C1810;
+  --color-primary-light: #5c3a28;
+  --color-accent: #8B6914;
+  --color-text: #1a1008;
+  --color-text-secondary: #6b5744;
+  --color-text-hint: #a08060;
+
+  /* 툴바 */
+  --toolbar-height: 56px;
+  --toolbar-bg: #2C1810;
+  --toolbar-text: #f5e6c8;
+
+  /* 타이포 */
+  --font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --line-height-body: 1.8;
+
+  /* 폰트 크기 단계 (개인 설정) */
+  --font-scale: 1;
+
+  /* 간격 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* 반응형 */
+  --max-width: 640px;
+
+  /* 그림자 */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.16);
+}
+
+[data-theme='dark'] {
+  --color-bg: #0f0a06;
+  --color-surface: #1e140c;
+  --color-surface-variant: #2a1e14;
+  --color-border: #3d2e20;
+  --color-primary: #f5e6c8;
+  --color-primary-light: #e0c898;
+  --color-accent: #d4a84b;
+  --color-text: #f0e8d8;
+  --color-text-secondary: #c0a880;
+  --color-text-hint: #806850;
+  --toolbar-bg: #1a0e08;
+  --toolbar-text: #f5e6c8;
+}

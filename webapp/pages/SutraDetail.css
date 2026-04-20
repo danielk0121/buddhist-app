@@ -1,0 +1,27 @@
+.detail-header {
+  padding: var(--space-md) 0;
+}
+
+.detail-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.detail-hanja {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.detail-category {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-hint);
+}
+
+.detail-placeholder {
+  color: var(--color-text-hint);
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
