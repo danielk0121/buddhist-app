@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Toolbar from '../components/layout/Toolbar'
 import { SUTRAS } from '../assets/data/sutras'
 import './SutraDetail.css'
@@ -24,6 +25,13 @@ export default function SutraDetail() {
 
   return (
     <div className="page">
+      <Helmet>
+        <title>{sutra.titleKo} ({sutra.titleHanja}) — 불경 에세이</title>
+        <meta name="description" content={`${sutra.titleKo}, ${sutra.category}. 한문 불경을 현대 한국어 수필로 읽다.`} />
+        <meta property="og:title" content={`${sutra.titleKo} (${sutra.titleHanja}) — 불경 에세이`} />
+        <meta property="og:description" content={`${sutra.titleKo}, ${sutra.category}. 한문 불경을 현대 한국어 수필로 읽다.`} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Toolbar
         title={sutra.titleKo}
         left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}

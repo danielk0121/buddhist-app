@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Toolbar from '../components/layout/Toolbar'
 import { CATEGORIES, SUTRAS } from '../assets/data/sutras'
 import './SutraList.css'
@@ -20,6 +21,11 @@ export default function SutraList() {
 
   return (
     <div className="page">
+      <Helmet>
+        <title>경전 목록 — 불경 에세이</title>
+        <meta name="description" content="45종 불경을 계열별로 탐색하세요." />
+        <meta property="og:title" content="경전 목록 — 불경 에세이" />
+      </Helmet>
       <Toolbar
         title="경전 목록"
         left={
