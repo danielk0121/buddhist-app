@@ -48,7 +48,7 @@ export default function SutraDetail() {
   if (!sutra) {
     return (
       <div className="page">
-        <Helmet><title>경전 없음 — 불경 에세이</title></Helmet>
+        <Helmet><title>경전 없음 — 경필</title></Helmet>
         <Toolbar
           title="경전 없음"
           left={<button className="toolbar-btn" onClick={() => navigate(-1)}>←</button>}
@@ -63,9 +63,9 @@ export default function SutraDetail() {
   return (
     <div className="page page--with-tts page--no-tabbar">
       <Helmet>
-        <title>{sutra.titleKo} ({sutra.titleHanja}) — 불경 에세이</title>
+        <title>{sutra.titleKo} ({sutra.titleHanja}) — 경필</title>
         <meta name="description" content={`${sutra.titleKo}, ${sutra.category}. 한문 불경을 현대 한국어 수필로 읽다.`} />
-        <meta property="og:title" content={`${sutra.titleKo} (${sutra.titleHanja}) — 불경 에세이`} />
+        <meta property="og:title" content={`${sutra.titleKo} (${sutra.titleHanja}) — 경필`} />
         <meta property="og:description" content={`${sutra.titleKo}, ${sutra.category}. 한문 불경을 현대 한국어 수필로 읽다.`} />
         <meta property="og:type" content="article" />
       </Helmet>

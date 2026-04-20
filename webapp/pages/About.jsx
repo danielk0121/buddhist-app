@@ -23,8 +23,8 @@ export default function About() {
       <div className="page-content">
 
         <section className="about-section about-hero">
-          <div className="about-app-icon">BH</div>
-          <h2 className="about-app-name">불경 에세이</h2>
+          <div className="about-app-icon">경필</div>
+          <h2 className="about-app-name">경필 (經筆)</h2>
           <p className="about-version">버전 {APP_VERSION}</p>
         </section>
 

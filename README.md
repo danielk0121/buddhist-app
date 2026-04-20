@@ -1,4 +1,4 @@
-# 불경 에세이
+# 경필 (經筆)
 
 [![Deploy](https://github.com/danielk0121/buddhist-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/danielk0121/buddhist-app/actions/workflows/deploy.yml)
 
@@ -23,7 +23,7 @@
 - 1단계: React (Vite) 웹앱으로 전체 기능 구현 (현재)
 - 2단계: Android WebView 기반 하이브리드 앱으로 패키징 후 Google Play 배포
 
-상세 전환 계획: [doc/todo_안드로이드_하이브리드_전환.md](doc/todo_안드로이드_하이브리드_전환.md)
+상세 전환 계획: [doc/todo_안드로이드_하이브리드_전환.md](doc/hold/todo_안드로이드_하이브리드_전환.md)
 
 ## 폴더 구조
 

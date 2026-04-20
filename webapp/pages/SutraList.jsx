@@ -22,9 +22,9 @@ export default function SutraList() {
   return (
     <div className="page">
       <Helmet>
-        <title>경전 목록 — 불경 에세이</title>
+        <title>경전 목록 — 경필</title>
         <meta name="description" content="45종 불경을 계열별로 탐색하세요." />
-        <meta property="og:title" content="경전 목록 — 불경 에세이" />
+        <meta property="og:title" content="경전 목록 — 경필" />
       </Helmet>
       <Toolbar
         title="경전 목록"

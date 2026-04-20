@@ -15,7 +15,9 @@
 
 ### 1.2 서비스명 (가칭)
 
-**불경 에세이** / `buddhist-essay`
+**경필 (經筆)** / `gyeongpil`
+
+> 경전(經)과 수필(筆)의 합성어. 한자 두 글자로 프로젝트 콘셉트를 직관적으로 표현하며, 도메인·아이콘 활용에도 적합하다.
 
 ### 1.3 벤치마크
 
@@ -314,14 +316,14 @@ Vite 빌드 시 정적 에셋은 content hash 파일명 적용 (`main.a1b2c3.js`
 
 ```html
 <!-- 기본 (홈) -->
-<meta property="og:title" content="불경 에세이 — 누구나 읽는 불경">
+<meta property="og:title" content="경필 — 누구나 읽는 불경">
 <meta property="og:description" content="한문 불경을 현대 한국어 수필로 만나다. 45종 경전을 쉽게 읽고, 듣고, 함께 이야기 나눠요.">
 <meta property="og:image" content="/og-default.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- 경전 상세 (동적 생성) -->
-<meta property="og:title" content="반야심경 (般若心經) — 불경 에세이">
+<meta property="og:title" content="반야심경 (般若心經) — 경필">
 <meta property="og:description" content="반야바라밀다심경, 260자 압축 핵심 경전을 수필로 읽다.">
 ```
 

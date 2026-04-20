@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="page">
       <Toolbar
-        title="불경 에세이"
+        title="경필 (經筆)"
         right={
           <div className="toolbar-actions">
             <button className="toolbar-btn" onClick={() => navigate('/list')} aria-label="경전 목록">☰</button>
