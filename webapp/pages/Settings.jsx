@@ -101,6 +101,14 @@ export default function Settings() {
         <div className="divider" />
 
         <section className="settings-section">
+          <button className="about-link" onClick={() => navigate('/bookmarks')}>
+            북마크 목록
+          </button>
+        </section>
+
+        <div className="divider" />
+
+        <section className="settings-section">
           <button className="about-link" onClick={() => navigate('/about')}>
             {t('settings_about')}
           </button>

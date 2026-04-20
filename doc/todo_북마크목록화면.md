@@ -19,3 +19,16 @@
     - 탭바 숨김 없이 표시 (탭 화면 아님 — 서브 화면)
 
 ## 작업 결과
+
+- `webapp/pages/Bookmarks.jsx` 신규 생성
+  - localStorage 북마크 목록 조회, 경전 카드 목록 표시
+  - 이모지 + 제목 + 한자 + 계열 표시
+  - ★ 버튼 클릭 시 북마크 해제, 즉시 목록에서 제거
+  - 북마크 없을 시 안내 문구 표시
+  - 경전 카드 탭 시 경전 상세로 이동
+- `webapp/pages/Bookmarks.css` 신규 생성
+  - 이모지 + 정보 + 해제 버튼 가로 배치 스타일
+- `webapp/App.jsx` 수정
+  - `Bookmarks` import 및 `/bookmarks` 라우트 추가
+- `webapp/pages/Settings.jsx` 수정
+  - 북마크 목록 화면으로 이동하는 버튼 추가 (개발자 정보 버튼 위)
