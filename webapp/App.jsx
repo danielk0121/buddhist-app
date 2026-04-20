@@ -14,7 +14,11 @@ const TAB_PATHS = ['/', '/audio', '/settings']
 const NO_TABBAR = ['/about']
 
 function AppToolbar() {
-  return <Toolbar title="경필 (經筆) - 경전 수필" />
+  return (
+    <Toolbar
+      title={<>경필 (經筆)<br />경전 수필</>}
+    />
+  )
 }
 
 export default function App() {

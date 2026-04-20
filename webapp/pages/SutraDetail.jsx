@@ -76,7 +76,6 @@ export default function SutraDetail() {
       <Toolbar
         title={sutra.titleKo}
         left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}
-        right={<button className="toolbar-btn" onClick={() => navigate('/settings')} aria-label={t('settings')}>{t('settings')}</button>}
       />
 
       <div className="page-content">
