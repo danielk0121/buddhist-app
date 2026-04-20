@@ -2,9 +2,9 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import './TabBar.css'
 
 const TABS = [
-  { path: '/',        label: '경전',    icon: '📖' },
-  { path: '/audio',   label: '오디오북', icon: '🎧' },
-  { path: '/settings', label: '설정',   icon: '⚙' },
+  { path: '/',         label: '경전' },
+  { path: '/audio',    label: '오디오북' },
+  { path: '/settings', label: '설정' },
 ]
 
 export default function TabBar() {
@@ -25,7 +25,6 @@ export default function TabBar() {
           onClick={() => navigate(tab.path)}
           aria-label={tab.label}
         >
-          <span className="tabbar-icon">{tab.icon}</span>
           <span className="tabbar-label">{tab.label}</span>
         </button>
       ))}

@@ -25,7 +25,7 @@ export default function AudioBook() {
           <section className="audio-now">
             <p className="audio-now__label">재생 중</p>
             <div className="audio-now__card">
-              <span className="audio-now__icon">🎵</span>
+              <span className="audio-now__icon">TTS</span>
               <div className="audio-now__info">
                 <p className="audio-now__title">{nowSutra.titleKo}</p>
                 <p className="audio-now__sub">
@@ -37,7 +37,7 @@ export default function AudioBook() {
           </section>
         ) : (
           <section className="audio-intro">
-            <div className="audio-intro__icon">🎧</div>
+            <div className="audio-intro__icon">오디오북</div>
             <p className="audio-intro__text">아래 경전을 선택해 바로 들어보세요.</p>
           </section>
         )}
@@ -66,7 +66,7 @@ export default function AudioBook() {
                       onClick={() => speak(paras, 0, slug)}
                       aria-label={`${sutra.titleKo} TTS 재생`}
                     >
-                      {isPlaying && playing ? '⏸' : '▶'}
+                      {isPlaying && playing ? '정지' : '재생'}
                     </button>
                   </div>
                 </li>

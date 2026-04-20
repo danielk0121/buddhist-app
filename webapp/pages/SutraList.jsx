@@ -35,7 +35,7 @@ export default function SutraList() {
         }
         right={
           <button className="toolbar-btn" onClick={() => setShowSearch((v) => !v)} aria-label="검색">
-            🔍
+            검색
           </button>
         }
       />

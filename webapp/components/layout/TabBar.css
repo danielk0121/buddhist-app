@@ -39,13 +39,8 @@
   border-bottom-color: var(--color-accent);
 }
 
-.tabbar-icon {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
 .tabbar-label {
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
