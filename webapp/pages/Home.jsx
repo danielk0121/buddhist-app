@@ -1,9 +1,25 @@
 import { useNavigate } from 'react-router-dom'
 import Toolbar from '../components/layout/Toolbar'
-import { CATEGORIES, SUTRAS } from '../assets/data/sutras'
+import { SUTRAS } from '../assets/data/sutras'
 import './Home.css'
 
-const TOP_SLUGS = ['반야심경', '금강경', '법화경', '지장경', '천수경']
+const CATEGORY_EMOJI = {
+  '반야 계열':       '般',
+  '법화 계열':       '法',
+  '화엄 계열':       '華',
+  '정토경전':        '淨',
+  '여래장·유식 계열': '如',
+  '대승 집성':       '大',
+  '재가·효 계열':    '孝',
+  '보살계·계율':     '戒',
+  '지장·약사 계열':  '藥',
+  '미륵 계열':       '彌',
+  '밀교경전':        '密',
+  '의식·다라니':     '陀',
+  '아함경전':        '阿',
+  '팔리어·아함':     '巴',
+  '팔리어 경전':     '巴',
+}
 
 export default function Home() {
   const navigate = useNavigate()
@@ -13,39 +29,17 @@ export default function Home() {
       <Toolbar
         title="경필 (經筆)"
         right={
-          <button className="toolbar-btn" onClick={() => navigate('/list')} aria-label="경전 목록">
-            목록
+          <button className="toolbar-btn toolbar-btn--menu" onClick={() => navigate('/list')} aria-label="경전 목록">
+            <span className="hamburger-bar" />
+            <span className="hamburger-bar" />
+            <span className="hamburger-bar" />
           </button>
         }
       />
       <div className="page-content">
 
-        {/* 인기 경전 TOP 5 — 가로 스크롤 카드 */}
         <section className="home-section">
-          <h2 className="home-section-title">인기 경전 TOP 5</h2>
-          <ul className="top-scroll">
-            {TOP_SLUGS.map((slug, i) => {
-              const sutra = SUTRAS.find((s) => s.slug === slug)
-              if (!sutra) return null
-              return (
-                <li key={slug}>
-                  <button className="top-card" onClick={() => navigate(`/sutra/${slug}`)}>
-                    <span className="top-card__rank">{i + 1}</span>
-                    <span className="top-card__title">{sutra.titleKo}</span>
-                    <span className="top-card__hanja">{sutra.titleHanja}</span>
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-
-        {/* 경전 타일 그리드 — 참고 이미지 기반 세로형 카드 3열 */}
-        <section className="home-section">
-          <div className="home-section-header">
-            <h2 className="home-section-title">전체 경전</h2>
-            <button className="home-more-btn" onClick={() => navigate('/list')}>전체보기</button>
-          </div>
+          <h2 className="home-section-title">전체 경전</h2>
           <ul className="sutra-tile-grid">
             {SUTRAS.map((sutra) => (
               <li key={sutra.id}>
@@ -54,7 +48,8 @@ export default function Home() {
                   onClick={() => navigate(`/sutra/${sutra.slug}`)}
                 >
                   <div className="sutra-tile__cover">
-                    <span className="sutra-tile__hanja">{sutra.titleHanja}</span>
+                    <span className="sutra-tile__cover-symbol">{CATEGORY_EMOJI[sutra.category] ?? '經'}</span>
+                    <span className="sutra-tile__cover-title">{sutra.titleKo}</span>
                   </div>
                   <div className="sutra-tile__info">
                     <span className="sutra-tile__title">{sutra.titleKo}</span>

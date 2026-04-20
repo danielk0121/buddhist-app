@@ -2,13 +2,6 @@
   margin-bottom: var(--space-xl);
 }
 
-.home-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-md);
-}
-
 .home-section-title {
   font-size: var(--font-size-md);
   font-weight: 600;
@@ -16,71 +9,24 @@
   margin-bottom: var(--space-md);
 }
 
-.home-more-btn {
-  font-size: var(--font-size-sm);
-  color: var(--color-accent);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: var(--space-md);
-}
-
-/* ── 인기 경전 TOP 5 — 가로 스크롤 카드 ── */
-.top-scroll {
-  display: flex;
-  gap: var(--space-sm);
-  overflow-x: auto;
-  padding-bottom: var(--space-sm);
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.top-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.top-card {
-  flex-shrink: 0;
-  width: 120px;
+/* ── 햄버거 버튼 ── */
+.toolbar-btn--menu {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-xs);
-  padding: var(--space-md) var(--space-sm);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.15s, box-shadow 0.15s;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
 }
 
-.top-card:hover {
-  background: var(--color-surface-variant);
-  box-shadow: var(--shadow-md);
-}
-
-.top-card__rank {
-  font-size: var(--font-size-xl);
-  font-weight: 800;
-  color: var(--color-accent);
-  line-height: 1;
-}
-
-.top-card__title {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.3;
-}
-
-.top-card__hanja {
-  font-size: 0.7rem;
-  color: var(--color-text-hint);
+.hamburger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
 }
 
 /* ── 경전 타일 그리드 — 세로형 카드 3열 ── */
@@ -111,10 +57,13 @@
   border: 1px solid var(--color-border);
   border-radius: 8px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   transition: box-shadow 0.15s, background 0.15s;
   overflow: hidden;
+  padding: 8px 4px;
 }
 
 .sutra-tile:hover .sutra-tile__cover {
@@ -122,14 +71,22 @@
   box-shadow: var(--shadow-md);
 }
 
-.sutra-tile__hanja {
-  font-size: 0.85rem;
-  color: var(--color-text-hint);
-  letter-spacing: 0.05em;
+.sutra-tile__cover-symbol {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.sutra-tile__cover-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
   text-align: center;
-  padding: 4px;
-  word-break: keep-all;
   line-height: 1.4;
+  word-break: keep-all;
+  padding: 0 4px;
 }
 
 .sutra-tile__info {
