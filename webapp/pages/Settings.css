@@ -64,3 +64,9 @@
   content: '›';
   color: var(--color-text-hint);
 }
+
+.settings-user-email {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}

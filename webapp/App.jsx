@@ -8,11 +8,12 @@ import AudioBook from './pages/AudioBook'
 import Settings from './pages/Settings'
 import About from './pages/About'
 import Bookmarks from './pages/Bookmarks'
+import Login from './pages/Login'
 
 // 공통 Toolbar + TabBar를 사용하는 탭 화면
 const TAB_PATHS = ['/', '/audio', '/settings']
 // 탭바를 숨기는 경로
-const NO_TABBAR = ['/about']
+const NO_TABBAR = ['/about', '/login']
 
 function AppToolbar() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/settings"    element={<Settings />} />
         <Route path="/about"       element={<About />} />
         <Route path="/bookmarks"   element={<Bookmarks />} />
+        <Route path="/login"       element={<Login />} />
       </Routes>
     </>
   )

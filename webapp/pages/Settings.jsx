@@ -1,6 +1,8 @@
+import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSettings } from '../context/SettingsContext'
 import { useT } from '../i18n/useT'
+import { getSession, signOut } from '../api/dummy/auth'
 import './Settings.css'
 
 
@@ -8,6 +10,12 @@ export default function Settings() {
   const navigate = useNavigate()
   const { settings, set } = useSettings()
   const t = useT()
+  const [session, setSession] = useState(() => getSession())
+
+  const handleSignOut = useCallback(async () => {
+    await signOut()
+    setSession(null)
+  }, [])
 
   const THEME_OPTIONS = [
     { value: 'light',  label: t('settings_theme_light') },
@@ -96,6 +104,19 @@ export default function Settings() {
               </button>
             ))}
           </div>
+        </section>
+
+        <div className="divider" />
+
+        <section className="settings-section">
+          {session ? (
+            <>
+              <p className="settings-user-email">{session.email}</p>
+              <button className="about-link" onClick={handleSignOut}>로그아웃</button>
+            </>
+          ) : (
+            <button className="about-link" onClick={() => navigate('/login')}>로그인</button>
+          )}
         </section>
 
         <div className="divider" />
