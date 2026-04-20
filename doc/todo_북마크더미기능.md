@@ -15,3 +15,10 @@
   - 설정 탭 또는 별도 화면에 북마크 목록 보기 추가 (추후 검토)
 
 ## 작업 결과
+
+- `webapp/api/dummy/bookmark.js` 신규 생성
+  - localStorage 기반 북마크 저장/조회
+  - `getBookmarks()`, `isBookmarked(slug)`, `addBookmark(slug)`, `removeBookmark(slug)`, `toggleBookmark(slug)` 구현
+- `webapp/pages/SutraDetail.jsx` 수정
+  - `bookmarked` useState 추가, slug 변경 시 초기값 동기화
+  - 툴바 우측 북마크 버튼(★/☆) 추가 — 클릭 시 토글, 상태에 따라 아이콘 변경

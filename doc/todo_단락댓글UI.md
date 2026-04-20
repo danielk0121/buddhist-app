@@ -13,3 +13,8 @@
   - `targetType: 'paragraph'`, `targetId: paragraphIndex` 형태 사용
 
 ## 작업 결과
+
+- `webapp/pages/SutraDetail.jsx` 확인 — `ParagraphBlock` 컴포넌트 내 `<CommentBox targetType="paragraph" targetId={para.id} />` 이미 적용 완료
+- `webapp/components/comment/CommentBox.jsx` 수정
+  - 토글 버튼에 닫힌 상태에서도 기존 댓글수 배지 표시 (`getCommentCount` 활용)
+  - 단락별 댓글 인라인 펼침/접기 토글 이미 동작 중

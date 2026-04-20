@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getComments, postComment, likeComment } from '../../api/dummy/comment'
+import { getComments, postComment, likeComment, getCommentCount } from '../../api/dummy/comment'
 import './CommentBox.css'
 
 function formatDate(iso) {
@@ -33,7 +33,7 @@ export default function CommentBox({ targetType, targetId }) {
   return (
     <div className="comment-box">
       <button className="comment-toggle" onClick={() => setOpen((v) => !v)}>
-        댓글{comments.length > 0 && open ? ` ${comments.length}개` : ''} {open ? '▲' : '▼'}
+        댓글{open ? (comments.length > 0 ? ` ${comments.length}개` : '') : (getCommentCount(targetType, targetId) > 0 ? ` ${getCommentCount(targetType, targetId)}개` : '')} {open ? '▲' : '▼'}
       </button>
 
       {open && (

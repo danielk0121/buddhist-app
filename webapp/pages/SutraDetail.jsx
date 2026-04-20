@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Toolbar from '../components/layout/Toolbar'
@@ -9,6 +9,7 @@ import { useT } from '../i18n/useT'
 import { useDB } from '../context/DBContext'
 import { SUTRAS } from '../assets/data/sutras'
 import { incrementViewCount } from '../utils/viewCount'
+import { isBookmarked, toggleBookmark } from '../api/dummy/bookmark'
 import './SutraDetail.css'
 
 function ParagraphBlock({ para, isActive, onPlayFrom }) {
@@ -44,11 +45,18 @@ export default function SutraDetail() {
   const { getParagraphs, loading: dbLoading } = useDB()
   const paragraphs = dbLoading ? [] : getParagraphs(slug)
   const { currentIdx, speak, stop } = useTTS()
+  const [bookmarked, setBookmarked] = useState(() => isBookmarked(slug))
 
   useEffect(() => {
     if (sutra) incrementViewCount(slug)
+    setBookmarked(isBookmarked(slug))
     return () => stop()
   }, [slug]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  function handleBookmark() {
+    const next = toggleBookmark(slug)
+    setBookmarked(next)
+  }
 
   if (!sutra) {
     return (
@@ -78,6 +86,15 @@ export default function SutraDetail() {
       <Toolbar
         title={sutra.titleKo}
         left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}
+        right={
+          <button
+            className="toolbar-btn"
+            onClick={handleBookmark}
+            aria-label={bookmarked ? '북마크 해제' : '북마크 추가'}
+          >
+            {bookmarked ? '★' : '☆'}
+          </button>
+        }
       />
 
       <div className="page-content">
