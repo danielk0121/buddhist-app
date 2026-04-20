@@ -1,22 +1,22 @@
 :root {
-  /* 색상 — 라이트 모드 */
-  --color-bg: #fdf8f0;
+  /* 색상 — 라이트 모드 (흰색·하늘색·검정·회색) */
+  --color-bg: #f0f6ff;
   --color-surface: #ffffff;
-  --color-surface-variant: #f5ede0;
-  --color-border: #e0d4c0;
-  --color-primary: #2C1810;
-  --color-primary-light: #5c3a28;
-  --color-accent: #8B6914;
-  --color-text: #1a1008;
-  --color-text-secondary: #6b5744;
-  --color-text-hint: #a08060;
+  --color-surface-variant: #ddeeff;
+  --color-border: #c0d8f0;
+  --color-primary: #0d1a2b;
+  --color-primary-light: #1e3a5f;
+  --color-accent: #2979c2;
+  --color-text: #0d1a2b;
+  --color-text-secondary: #3d5a7a;
+  --color-text-hint: #7a9ab8;
 
   /* 툴바 / 탭바 */
   --toolbar-height: 56px;
   --tabbar-height: 48px;
   --header-total: calc(var(--toolbar-height) + var(--tabbar-height));
-  --toolbar-bg: #2C1810;
-  --toolbar-text: #f5e6c8;
+  --toolbar-bg: #1a3a5c;
+  --toolbar-text: #ffffff;
 
   /* 타이포 */
   --font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
@@ -41,21 +41,21 @@
   --max-width: 640px;
 
   /* 그림자 */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-  --shadow-md: 0 2px 8px rgba(0,0,0,0.16);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.10);
+  --shadow-md: 0 2px 8px rgba(41,121,194,0.18);
 }
 
 [data-theme='dark'] {
-  --color-bg: #0f0a06;
-  --color-surface: #1e140c;
-  --color-surface-variant: #2a1e14;
-  --color-border: #3d2e20;
-  --color-primary: #f5e6c8;
-  --color-primary-light: #e0c898;
-  --color-accent: #d4a84b;
-  --color-text: #f0e8d8;
-  --color-text-secondary: #c0a880;
-  --color-text-hint: #806850;
-  --toolbar-bg: #1a0e08;
-  --toolbar-text: #f5e6c8;
+  --color-bg: #080f18;
+  --color-surface: #0f1e30;
+  --color-surface-variant: #162840;
+  --color-border: #1e3850;
+  --color-primary: #e8f2ff;
+  --color-primary-light: #a8c8f0;
+  --color-accent: #5ba3e8;
+  --color-text: #e8f2ff;
+  --color-text-secondary: #8ab4d8;
+  --color-text-hint: #4a7098;
+  --toolbar-bg: #0a1828;
+  --toolbar-text: #e8f2ff;
 }

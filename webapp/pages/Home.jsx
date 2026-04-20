@@ -5,21 +5,21 @@ import { SUTRAS } from '../assets/data/sutras'
 import './Home.css'
 
 const CATEGORY_EMOJI = {
-  '반야 계열':       '般',
-  '법화 계열':       '法',
-  '화엄 계열':       '華',
-  '정토경전':        '淨',
-  '여래장·유식 계열': '如',
-  '대승 집성':       '大',
-  '재가·효 계열':    '孝',
-  '보살계·계율':     '戒',
-  '지장·약사 계열':  '藥',
-  '미륵 계열':       '彌',
-  '밀교경전':        '密',
-  '의식·다라니':     '陀',
-  '아함경전':        '阿',
-  '팔리어·아함':     '巴',
-  '팔리어 경전':     '巴',
+  '반야 계열':       '💎',
+  '법화 계열':       '🌸',
+  '화엄 계열':       '🌿',
+  '정토경전':        '🪷',
+  '여래장·유식 계열': '🔮',
+  '대승 집성':       '📚',
+  '재가·효 계열':    '🏡',
+  '보살계·계율':     '⚖️',
+  '지장·약사 계열':  '🍃',
+  '미륵 계열':       '🌅',
+  '밀교경전':        '🕯️',
+  '의식·다라니':     '📿',
+  '아함경전':        '🍎',
+  '팔리어·아함':     '🌾',
+  '팔리어 경전':     '🌱',
 }
 
 export default function Home() {
@@ -43,13 +43,14 @@ export default function Home() {
         <section className="home-section">
           <h2 className="home-section-title">{t('home_all_sutras')}</h2>
           <ul className="sutra-tile-grid">
-            {SUTRAS.map((sutra) => (
+            {SUTRAS.map((sutra, idx) => (
               <li key={sutra.id}>
                 <button
                   className="sutra-tile"
                   onClick={() => navigate(`/sutra/${sutra.slug}`)}
                 >
                   <div className="sutra-tile__cover">
+                    <span className="sutra-tile__cover-num">{idx + 1}</span>
                     <span className="sutra-tile__cover-symbol">{CATEGORY_EMOJI[sutra.category] ?? '經'}</span>
                     <span className="sutra-tile__cover-title">{sutra.titleKo}</span>
                   </div>

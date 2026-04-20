@@ -109,9 +109,7 @@ html, body {
 }
 
 .sutra-tile__cover-symbol {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--color-accent);
+  font-size: 2rem;
   line-height: 1;
   letter-spacing: 0;
 }

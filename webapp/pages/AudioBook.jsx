@@ -8,21 +8,21 @@ import { getParagraphs } from '../assets/data/paragraphs'
 import './AudioBook.css'
 
 const CATEGORY_EMOJI = {
-  '반야 계열':       '般',
-  '법화 계열':       '法',
-  '화엄 계열':       '華',
-  '정토경전':        '淨',
-  '여래장·유식 계열': '如',
-  '대승 집성':       '大',
-  '재가·효 계열':    '孝',
-  '보살계·계율':     '戒',
-  '지장·약사 계열':  '藥',
-  '미륵 계열':       '彌',
-  '밀교경전':        '密',
-  '의식·다라니':     '陀',
-  '아함경전':        '阿',
-  '팔리어·아함':     '巴',
-  '팔리어 경전':     '巴',
+  '반야 계열':       '💎',
+  '법화 계열':       '🌸',
+  '화엄 계열':       '🌿',
+  '정토경전':        '🪷',
+  '여래장·유식 계열': '🔮',
+  '대승 집성':       '📚',
+  '재가·효 계열':    '🏡',
+  '보살계·계율':     '⚖️',
+  '지장·약사 계열':  '🍃',
+  '미륵 계열':       '🌅',
+  '밀교경전':        '🕯️',
+  '의식·다라니':     '📿',
+  '아함경전':        '🍎',
+  '팔리어·아함':     '🌾',
+  '팔리어 경전':     '🌱',
 }
 
 export default function AudioBook() {
@@ -77,7 +77,7 @@ export default function AudioBook() {
                       onClick={() => speak(paras, 0, sutra.slug)}
                       aria-label={`${sutra.titleKo} TTS 재생`}
                     >
-                      {isActive && playing ? '⏸' : '▶'}
+                      {isActive && playing ? '⏸' : '🔊'}
                     </button>
                   </div>
                 </li>
