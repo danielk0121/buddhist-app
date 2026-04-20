@@ -11,8 +11,10 @@
   --color-text-secondary: #6b5744;
   --color-text-hint: #a08060;
 
-  /* 툴바 */
+  /* 툴바 / 탭바 */
   --toolbar-height: 56px;
+  --tabbar-height: 48px;
+  --header-total: calc(var(--toolbar-height) + var(--tabbar-height));
   --toolbar-bg: #2C1810;
   --toolbar-text: #f5e6c8;
 

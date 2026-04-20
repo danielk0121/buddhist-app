@@ -15,7 +15,7 @@ export default function About() {
   const navigate = useNavigate()
 
   return (
-    <div className="page">
+    <div className="page page--no-tabbar">
       <Toolbar
         title="개발자 정보"
         left={<button className="toolbar-btn" onClick={() => navigate(-1)} aria-label="뒤로가기">←</button>}

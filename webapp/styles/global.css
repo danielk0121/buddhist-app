@@ -28,8 +28,13 @@ html, body {
 .page-content {
   flex: 1;
   padding: var(--space-md);
-  padding-top: calc(var(--toolbar-height) + var(--space-md));
+  padding-top: calc(var(--header-total) + var(--space-md));
   overflow-y: auto;
+}
+
+/* 탭바 없는 화면 (상세, about 등) */
+.page--no-tabbar .page-content {
+  padding-top: calc(var(--toolbar-height) + var(--space-md));
 }
 
 /* 구분선 */

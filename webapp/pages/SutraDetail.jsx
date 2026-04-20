@@ -61,7 +61,7 @@ export default function SutraDetail() {
   }
 
   return (
-    <div className="page page--with-tts">
+    <div className="page page--with-tts page--no-tabbar">
       <Helmet>
         <title>{sutra.titleKo} ({sutra.titleHanja}) — 불경 에세이</title>
         <meta name="description" content={`${sutra.titleKo}, ${sutra.category}. 한문 불경을 현대 한국어 수필로 읽다.`} />
@@ -91,7 +91,7 @@ export default function SutraDetail() {
               key={para.id}
               para={para}
               isActive={currentIdx === para.orderIndex}
-              onPlayFrom={(idx) => speak(paragraphs, idx)}
+              onPlayFrom={(idx) => speak(paragraphs, idx, slug)}
             />
           ))}
         </div>
