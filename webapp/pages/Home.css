@@ -1,3 +1,7 @@
+.home-section {
+  margin-bottom: var(--space-xl);
+}
+
 .home-section-title {
   font-size: var(--font-size-md);
   font-weight: 600;
@@ -5,6 +9,49 @@
   margin-bottom: var(--space-md);
 }
 
+/* 인기 경전 TOP 5 */
+.top-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.top-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  text-align: left;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.top-item:hover { background: var(--color-surface-variant); }
+
+.top-rank {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-accent);
+  min-width: 24px;
+}
+
+.top-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.top-hanja {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-hint);
+}
+
+/* 계열별 경전 */
 .category-list {
   display: flex;
   flex-direction: column;
@@ -22,11 +69,10 @@
   border-radius: 8px;
   text-align: left;
   transition: background 0.15s;
+  cursor: pointer;
 }
 
-.category-item:hover {
-  background: var(--color-surface-variant);
-}
+.category-item:hover { background: var(--color-surface-variant); }
 
 .category-name {
   font-size: var(--font-size-base);
@@ -36,4 +82,9 @@
 .category-count {
   font-size: var(--font-size-sm);
   color: var(--color-text-hint);
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: var(--space-xs);
 }

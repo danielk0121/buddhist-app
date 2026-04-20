@@ -1,0 +1,127 @@
+.comment-box {
+  margin-top: var(--space-md);
+}
+
+.comment-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.comment-toggle:hover {
+  background: var(--color-surface-variant);
+}
+
+.comment-body {
+  margin-top: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-md);
+  background: var(--color-surface);
+}
+
+.comment-empty {
+  color: var(--color-text-hint);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  padding: var(--space-sm) 0;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.comment-item {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+
+.comment-meta {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+  margin-bottom: var(--space-xs);
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.comment-date {
+  font-size: 0.75rem;
+  color: var(--color-text-hint);
+}
+
+.comment-content {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-body);
+  margin: 0 0 var(--space-xs);
+}
+
+.comment-like {
+  background: none;
+  border: none;
+  color: var(--color-text-hint);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.comment-like:hover {
+  color: var(--color-accent);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.comment-input {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: var(--space-sm);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+.comment-input:focus {
+  outline: 2px solid var(--color-accent);
+  border-color: transparent;
+}
+
+.comment-input--text {
+  resize: vertical;
+}
+
+.comment-submit {
+  align-self: flex-end;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.comment-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

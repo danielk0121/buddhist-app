@@ -1,27 +1,112 @@
+.page--with-tts .page-content {
+  padding-bottom: 80px;
+}
+
 .detail-header {
-  padding: var(--space-md) 0;
+  text-align: center;
+  padding: var(--space-lg) 0 var(--space-md);
 }
 
 .detail-title {
-  font-size: var(--font-size-xl);
+  font-size: calc(var(--font-size-xl) * var(--font-scale));
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-xs);
+  margin: 0 0 var(--space-xs);
 }
 
 .detail-hanja {
-  font-size: var(--font-size-md);
+  font-size: calc(var(--font-size-md) * var(--font-scale));
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-xs);
+  margin: 0 0 var(--space-xs);
+  font-style: italic;
 }
 
 .detail-category {
   font-size: var(--font-size-sm);
   color: var(--color-text-hint);
+  margin: 0;
 }
 
-.detail-placeholder {
-  color: var(--color-text-hint);
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+/* 단락 목록 */
+.para-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.para-block {
+  padding: var(--space-md);
+  border-radius: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.para-block--active {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(139, 105, 20, 0.18);
+}
+
+.para-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.para-section {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.para-tts-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.para-tts-btn:hover {
+  background: var(--color-surface-variant);
+  color: var(--color-accent);
+}
+
+.para-content {
+  font-size: calc(var(--font-size-base) * var(--font-scale));
+  color: var(--color-text);
+  line-height: var(--line-height-body);
+  white-space: pre-line;
+}
+
+/* 경전 전체 댓글 */
+.sutra-comment-section {
+  margin-top: var(--space-lg);
+}
+
+.sutra-comment-title {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.tts-spacer {
+  height: 16px;
+}
+
+.empty-msg {
   text-align: center;
-  padding: var(--space-xl) 0;
+  color: var(--color-text-hint);
+  padding: var(--space-xl);
 }
