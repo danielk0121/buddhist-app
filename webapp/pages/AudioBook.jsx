@@ -7,15 +7,31 @@ import { SUTRAS } from '../assets/data/sutras'
 import { getParagraphs } from '../assets/data/paragraphs'
 import './AudioBook.css'
 
-const RECOMMENDED = ['반야심경', '금강경', '법화경', '지장경', '천수경', '법구경', '아미타경', '유마경']
+const CATEGORY_EMOJI = {
+  '반야 계열':       '般',
+  '법화 계열':       '法',
+  '화엄 계열':       '華',
+  '정토경전':        '淨',
+  '여래장·유식 계열': '如',
+  '대승 집성':       '大',
+  '재가·효 계열':    '孝',
+  '보살계·계율':     '戒',
+  '지장·약사 계열':  '藥',
+  '미륵 계열':       '彌',
+  '밀교경전':        '密',
+  '의식·다라니':     '陀',
+  '아함경전':        '阿',
+  '팔리어·아함':     '巴',
+  '팔리어 경전':     '巴',
+}
 
 export default function AudioBook() {
   const navigate = useNavigate()
   const { currentIdx, currentSlug, playing, speak, stop, paragraphs } = useTTS()
-
   const t = useT()
+
   const nowSutra = currentSlug ? SUTRAS.find((s) => s.slug === currentSlug) : null
-  const nowParagraphs = currentSlug ? paragraphs.current : getParagraphs(RECOMMENDED[0])
+  const nowParagraphs = currentSlug ? paragraphs.current : getParagraphs(SUTRAS[0].slug)
 
   return (
     <div className="page page--with-tts">
@@ -23,67 +39,50 @@ export default function AudioBook() {
 
       <div className="page-content">
 
-        {nowSutra && currentIdx !== null ? (
+        {nowSutra && currentIdx !== null && (
           <section className="audio-now">
-            <p className="audio-now__label">{t('audio_now_playing')}</p>
-            <div className="audio-now__card">
-              <span className="audio-now__icon">TTS</span>
-              <div className="audio-now__info">
-                <p className="audio-now__title">{nowSutra.titleKo}</p>
-                <p className="audio-now__sub">
-                  {nowParagraphs[currentIdx]?.section ?? ''} · {playing ? '재생 중' : '일시정지'}
-                </p>
-              </div>
-              <button className="audio-stop-btn" onClick={stop}>{t('audio_stop')}</button>
-            </div>
-          </section>
-        ) : (
-          <section className="audio-intro">
-            <div className="audio-intro__icon">오디오북</div>
-            <p className="audio-intro__text">{t('audio_select_prompt')}</p>
+            <p className="audio-now__label">▶ {t('audio_now_playing')} — {nowSutra.titleKo}</p>
+            <p className="audio-now__sub">
+              {nowParagraphs[currentIdx]?.section ?? ''} · {playing ? t('audio_status_playing') : t('audio_status_paused')}
+              <button className="audio-stop-btn" onClick={stop}>⏹ {t('audio_stop')}</button>
+            </p>
           </section>
         )}
 
-        <section className="audio-section">
-          <h2 className="audio-section-title">{t('audio_listen')}</h2>
-          <ul className="audio-list">
-            {RECOMMENDED.map((slug) => {
-              const sutra = SUTRAS.find((s) => s.slug === slug)
-              if (!sutra) return null
-              const paras = getParagraphs(slug)
-              const isPlaying = currentSlug === slug && currentIdx !== null
+        <section className="home-section">
+          <h2 className="home-section-title">{t('audio_listen')}</h2>
+          <ul className="sutra-tile-grid">
+            {SUTRAS.map((sutra, idx) => {
+              const paras = getParagraphs(sutra.slug)
+              const isActive = currentSlug === sutra.slug && currentIdx !== null
               return (
-                <li key={slug}>
-                  <div className={`audio-item ${isPlaying ? 'audio-item--active' : ''}`}>
+                <li key={sutra.id}>
+                  <div className={`sutra-tile-wrap ${isActive ? 'sutra-tile-wrap--active' : ''}`}>
                     <button
-                      className="audio-item__info"
-                      onClick={() => navigate(`/sutra/${slug}`)}
+                      className="sutra-tile"
+                      onClick={() => navigate(`/sutra/${sutra.slug}`)}
                     >
-                      <span className="audio-item__title">{sutra.titleKo}</span>
-                      <span className="audio-item__hanja">{sutra.titleHanja}</span>
-                      <span className="audio-item__meta">{sutra.category} · {paras.length}단락</span>
+                      <div className="sutra-tile__cover">
+                        <span className="sutra-tile__cover-num">{idx + 1}</span>
+                        <span className="sutra-tile__cover-symbol">{CATEGORY_EMOJI[sutra.category] ?? '經'}</span>
+                        <span className="sutra-tile__cover-title">{sutra.titleKo}</span>
+                      </div>
+                      <div className="sutra-tile__info">
+                        <span className="sutra-tile__title">{sutra.titleKo}</span>
+                        <span className="sutra-tile__category">{sutra.category}</span>
+                      </div>
                     </button>
                     <button
-                      className="audio-item__play"
-                      onClick={() => speak(paras, 0, slug)}
+                      className="audio-tile-play-btn"
+                      onClick={() => speak(paras, 0, sutra.slug)}
                       aria-label={`${sutra.titleKo} TTS 재생`}
                     >
-                      {isPlaying && playing ? t('audio_pause') : t('audio_play')}
+                      {isActive && playing ? '⏸' : '▶'}
                     </button>
                   </div>
                 </li>
               )
             })}
-          </ul>
-        </section>
-
-        <section className="audio-section">
-          <h2 className="audio-section-title">{t('audio_guide_title')}</h2>
-          <ul className="audio-guide-list">
-            <li>{t('audio_guide_1')}</li>
-            <li>{t('audio_guide_2')}</li>
-            <li>{t('audio_guide_3')}</li>
-            <li>{t('audio_guide_4')}</li>
           </ul>
         </section>
 

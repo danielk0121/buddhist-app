@@ -1,171 +1,74 @@
-.audio-intro {
-  text-align: center;
-  padding: var(--space-xl) 0 var(--space-lg);
-}
-
-.audio-intro__icon {
-  font-size: 3rem;
-  margin-bottom: var(--space-sm);
-}
-
-.audio-intro__text {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-}
-
 /* 재생 중 배너 */
 .audio-now {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 8px;
 }
 
 .audio-now__label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-hint);
-  margin-bottom: var(--space-xs);
-}
-
-.audio-now__card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  background: var(--color-accent);
-  color: #fff;
-  border-radius: 10px;
-}
-
-.audio-now__icon {
-  font-size: 1.5rem;
-}
-
-.audio-now__info {
-  flex: 1;
-}
-
-.audio-now__title {
   font-weight: 600;
-  font-size: var(--font-size-base);
   margin: 0 0 2px;
 }
 
 .audio-now__sub {
-  font-size: var(--font-size-sm);
+  font-size: 0.78rem;
   opacity: 0.85;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .audio-stop-btn {
   background: rgba(255,255,255,0.2);
   border: none;
   color: #fff;
-  border-radius: 6px;
-  padding: var(--space-xs) var(--space-sm);
-  font-size: var(--font-size-sm);
+  border-radius: 4px;
+  padding: 2px var(--space-xs);
+  font-size: 0.75rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .audio-stop-btn:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.35);
 }
 
-/* 섹션 */
-.audio-section {
-  margin-bottom: var(--space-xl);
+/* 타일 래퍼 — 재생 버튼 오버레이 */
+.sutra-tile-wrap {
+  position: relative;
+  width: 100%;
 }
 
-.audio-section-title {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-md);
+.sutra-tile-wrap--active .sutra-tile__cover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
 }
 
-/* 경전 목록 */
-.audio-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.audio-item {
+.audio-tile-play-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: border-color 0.15s;
-}
-
-.audio-item--active {
-  border-color: var(--color-accent);
-}
-
-.audio-item__info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  padding: var(--space-md);
-  background: none;
-  border: none;
+  justify-content: center;
   cursor: pointer;
-  text-align: left;
-}
-
-.audio-item__info:hover {
-  background: var(--color-surface-variant);
-}
-
-.audio-item__title {
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.audio-item__hanja {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.audio-item__meta {
-  font-size: 0.75rem;
-  color: var(--color-text-hint);
-}
-
-.audio-item__play {
-  width: 52px;
-  height: 100%;
-  min-height: 64px;
-  background: none;
-  border: none;
-  border-left: 1px solid var(--color-border);
-  font-size: 1.2rem;
-  color: var(--color-accent);
-  cursor: pointer;
+  box-shadow: var(--shadow-md);
   transition: background 0.15s;
-  flex-shrink: 0;
 }
 
-.audio-item__play:hover {
-  background: var(--color-surface-variant);
-}
-
-/* 안내 목록 */
-.audio-guide-list {
-  padding-left: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-  line-height: 1.7;
+.audio-tile-play-btn:hover {
+  background: var(--color-primary);
 }
 
 .tts-spacer {

@@ -39,6 +39,8 @@ const translations = {
     audio_pause: '정지',
     audio_resume: '계속',
     audio_tts_play: 'TTS 재생',
+    audio_status_playing: '재생 중',
+    audio_status_paused: '일시정지',
     audio_prev: '이전',
     audio_next: '다음',
 
@@ -109,6 +111,8 @@ const translations = {
     audio_pause: 'Pause',
     audio_resume: 'Resume',
     audio_tts_play: 'TTS Play',
+    audio_status_playing: 'Playing',
+    audio_status_paused: 'Paused',
     audio_prev: 'Prev',
     audio_next: 'Next',
 
