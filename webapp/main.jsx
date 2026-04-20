@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { SettingsProvider } from './context/SettingsContext'
 import { TTSProvider } from './context/TTSContext'
+import { DBProvider } from './context/DBContext'
 import './styles/global.css'
 import App from './App'
 
@@ -12,9 +13,11 @@ createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <SettingsProvider>
-          <TTSProvider>
-            <App />
-          </TTSProvider>
+          <DBProvider>
+            <TTSProvider>
+              <App />
+            </TTSProvider>
+          </DBProvider>
         </SettingsProvider>
       </BrowserRouter>
     </HelmetProvider>

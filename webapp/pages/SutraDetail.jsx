@@ -6,8 +6,8 @@ import CommentBox from '../components/comment/CommentBox'
 import TTSPlayer from '../components/tts/TTSPlayer'
 import { useTTS } from '../context/TTSContext'
 import { useT } from '../i18n/useT'
+import { useDB } from '../context/DBContext'
 import { SUTRAS } from '../assets/data/sutras'
-import { getParagraphs } from '../assets/data/paragraphs'
 import './SutraDetail.css'
 
 function ParagraphBlock({ para, isActive, onPlayFrom }) {
@@ -40,7 +40,8 @@ export default function SutraDetail() {
   const navigate = useNavigate()
   const t = useT()
   const sutra = SUTRAS.find((s) => s.slug === slug)
-  const paragraphs = getParagraphs(slug)
+  const { getParagraphs, loading: dbLoading } = useDB()
+  const paragraphs = dbLoading ? [] : getParagraphs(slug)
   const { currentIdx, speak, stop } = useTTS()
 
   useEffect(() => {
@@ -88,6 +89,7 @@ export default function SutraDetail() {
         <div className="divider" />
 
         <div className="para-list">
+          {dbLoading && <p className="empty-msg">경전 데이터 불러오는 중…</p>}
           {paragraphs.map((para) => (
             <ParagraphBlock
               key={para.id}
