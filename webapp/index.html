@@ -17,6 +17,17 @@
     <meta name="twitter:title" content="경필 — 누구나 읽는 불경 수필" />
     <meta name="twitter:description" content="한문 불경을 현대 한국어 수필로 만나다. 45종 경전을 쉽게 읽고, 듣고, 함께 이야기 나눠요." />
     <meta name="twitter:image" content="/og-default.png" />
+    <script>
+      // GitHub Pages SPA 라우팅: 404.html에서 저장된 원래 URL로 경로 복원
+      (function() {
+        var redirect = sessionStorage.redirect
+        delete sessionStorage.redirect
+        if (redirect && redirect !== window.location.href) {
+          var url = new URL(redirect)
+          history.replaceState(null, null, url.pathname + url.search + url.hash)
+        }
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // GitHub Pages SPA 라우팅 처리
+      // 현재 전체 URL을 sessionStorage에 저장한 뒤 앱 루트로 리다이렉트
+      sessionStorage.redirect = window.location.href
+      window.location.replace(
+        window.location.origin + '/buddhist-app/'
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
