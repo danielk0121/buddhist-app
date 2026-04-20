@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Toolbar from '../components/layout/Toolbar'
@@ -10,9 +10,13 @@ import { useDB } from '../context/DBContext'
 import { SUTRAS } from '../assets/data/sutras'
 import { incrementViewCount } from '../utils/viewCount'
 import { isBookmarked, toggleBookmark } from '../api/dummy/bookmark'
+import { parseDictionary } from '../utils/parseDictionary'
+import GlossaryText from '../components/common/GlossaryText'
 import './SutraDetail.css'
 
-function ParagraphBlock({ para, isActive, onPlayFrom }) {
+const GLOSSARY_SECTIONS = ['이야기', '읽고 나서', '한자 구절 한국어 풀이']
+
+function ParagraphBlock({ para, isActive, onPlayFrom, glossary }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -20,6 +24,8 @@ function ParagraphBlock({ para, isActive, onPlayFrom }) {
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     }
   }, [isActive])
+
+  const useGlossary = GLOSSARY_SECTIONS.includes(para.section) && Object.keys(glossary).length > 0
 
   return (
     <div ref={ref} className={`para-block ${isActive ? 'para-block--active' : ''}`}>
@@ -31,7 +37,12 @@ function ParagraphBlock({ para, isActive, onPlayFrom }) {
           aria-label={`${para.section} TTS 재생`}
         >▶</button>
       </div>
-      <div className="para-content">{para.content}</div>
+      <div className="para-content">
+        {useGlossary
+          ? <GlossaryText text={para.content} glossary={glossary} />
+          : para.content
+        }
+      </div>
       <CommentBox targetType="paragraph" targetId={para.id} />
     </div>
   )
@@ -46,6 +57,11 @@ export default function SutraDetail() {
   const paragraphs = dbLoading ? [] : getParagraphs(slug)
   const { currentIdx, speak, stop } = useTTS()
   const [bookmarked, setBookmarked] = useState(() => isBookmarked(slug))
+
+  const glossary = useMemo(() => {
+    const dictPara = paragraphs.find((p) => p.section === '단어 사전')
+    return dictPara ? parseDictionary(dictPara.content) : {}
+  }, [paragraphs])
 
   useEffect(() => {
     if (sutra) incrementViewCount(slug)
@@ -114,6 +130,7 @@ export default function SutraDetail() {
               para={para}
               isActive={currentIdx === para.orderIndex}
               onPlayFrom={(idx) => speak(paragraphs, idx, slug)}
+              glossary={glossary}
             />
           ))}
         </div>

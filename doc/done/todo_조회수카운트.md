@@ -20,5 +20,4 @@
   - 경전 상세 진입(mount) 시 해당 slug 조회수 증가
 - `webapp/pages/SutraList.jsx` 수정
   - 카드에 조회수 표시 (조회수가 1 이상인 경우만)
-- `webapp/pages/Home.jsx` 수정
-  - TOP5 배너를 조회수 기반 동적 정렬로 변경 (조회수 없을 때는 기본 5종 표시)
+- `webapp/pages/Home.jsx` 수정 — 해당 없음 (TOP5 배너 기능 삭제됨)
