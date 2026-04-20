@@ -32,6 +32,11 @@ export async function postComment({ targetType, targetId, authorName, content })
   return comment
 }
 
+export function getCommentCount(targetType, targetId) {
+  const all = loadAll()
+  return all.filter((c) => c.targetType === targetType && c.targetId === targetId).length
+}
+
 export async function likeComment(commentId) {
   const all = loadAll()
   const idx = all.findIndex((c) => c.id === commentId)

@@ -81,10 +81,20 @@
   color: var(--color-text-hint);
 }
 
+.sutra-card__stats {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: 4px;
+}
+
 .sutra-card__views {
   font-size: 0.75rem;
   color: var(--color-accent);
-  margin-top: 4px;
+}
+
+.sutra-card__comments {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
 }
 
 .empty-msg {

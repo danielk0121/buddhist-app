@@ -13,3 +13,11 @@
 - 단락 단위 댓글은 추후 구현 (Phase 2 후속)
 
 ## 작업 결과
+
+- `webapp/api/dummy/comment.js` 확인 — localStorage 기반 더미 API 이미 구현됨
+  - `getComments`, `postComment`, `likeComment` 완성 상태
+  - `getCommentCount(targetType, targetId)` 동기 함수 추가 (목록 카드 표시용)
+- `webapp/components/comment/CommentBox.jsx` 확인 — 댓글 UI 이미 구현됨
+  - 경전 상세 화면 단락별 + 경전 전체 댓글 모두 연결된 상태
+- `webapp/pages/SutraList.jsx` 수정
+  - 경전 카드에 조회수 + 댓글수 통계 표시 (0건 시 숨김)

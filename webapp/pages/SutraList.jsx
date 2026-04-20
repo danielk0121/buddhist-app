@@ -5,6 +5,7 @@ import Toolbar from '../components/layout/Toolbar'
 import { useT } from '../i18n/useT'
 import { CATEGORIES, SUTRAS } from '../assets/data/sutras'
 import { getAllViewCounts } from '../utils/viewCount'
+import { getCommentCount } from '../api/dummy/comment'
 import './SutraList.css'
 
 export default function SutraList() {
@@ -60,9 +61,14 @@ export default function SutraList() {
                 <div className="sutra-card__title">{s.titleKo}</div>
                 <div className="sutra-card__hanja">{s.titleHanja}</div>
                 <div className="sutra-card__category">{s.category}</div>
-                {viewCounts[s.slug] > 0 && (
-                  <div className="sutra-card__views">조회 {viewCounts[s.slug].toLocaleString()}</div>
-                )}
+                <div className="sutra-card__stats">
+                  {viewCounts[s.slug] > 0 && (
+                    <span className="sutra-card__views">조회 {viewCounts[s.slug].toLocaleString()}</span>
+                  )}
+                  {getCommentCount('sutra', s.slug) > 0 && (
+                    <span className="sutra-card__comments">댓글 {getCommentCount('sutra', s.slug)}</span>
+                  )}
+                </div>
               </button>
             </li>
           ))}
