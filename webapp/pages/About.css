@@ -86,3 +86,13 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-hint);
 }
+
+.about-link-text {
+  color: var(--color-primary);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.about-link-text:hover {
+  text-decoration: underline;
+}

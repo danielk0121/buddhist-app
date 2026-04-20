@@ -17,3 +17,13 @@
     - GitHub 저장소 링크 추가 (현재 텍스트만 있고 클릭 불가)
 
 ## 작업 결과
+
+- `webapp/pages/About.jsx` 수정
+  - 개발자 이메일 항목 추가 (dorun8625@gmail.com)
+  - GitHub 저장소 링크를 클릭 가능한 `<a>` 태그로 변경 (새 탭 열기)
+  - `OPEN_SOURCE_LIBS` 배열에 누락 라이브러리 3개 추가
+    - `react-helmet-async v3.0.0` (MIT)
+    - `sql.js v1.14.1` (MIT)
+    - `better-sqlite3 v12.9.0` (MIT)
+- `webapp/pages/About.css` 수정
+  - `.about-link-text` 스타일 추가 (primary 색상, hover 언더라인)

@@ -6,10 +6,13 @@ import './About.css'
 const APP_VERSION = '0.1.0'
 
 const OPEN_SOURCE_LIBS = [
-  { name: 'React',           version: '18.3.1',  license: 'MIT' },
-  { name: 'React Router',    version: '6.28.0',  license: 'MIT' },
-  { name: 'Vite',            version: '6.0.5',   license: 'MIT' },
-  { name: '@vitejs/plugin-react', version: '4.3.4', license: 'MIT' },
+  { name: 'React',                version: '18.3.1',  license: 'MIT' },
+  { name: 'React Router',         version: '6.28.0',  license: 'MIT' },
+  { name: 'react-helmet-async',   version: '3.0.0',   license: 'MIT' },
+  { name: 'Vite',                 version: '6.0.5',   license: 'MIT' },
+  { name: '@vitejs/plugin-react', version: '4.3.4',   license: 'MIT' },
+  { name: 'sql.js',               version: '1.14.1',  license: 'MIT' },
+  { name: 'better-sqlite3',       version: '12.9.0',  license: 'MIT' },
 ]
 
 export default function About() {
@@ -36,7 +39,17 @@ export default function About() {
           <h3 className="about-section-title">{t('about_developer')}</h3>
           <ul className="about-list">
             <li>danielk0121</li>
-            <li>GitHub: github.com/danielk0121/buddhist-app</li>
+            <li>dorun8625@gmail.com</li>
+            <li>
+              <a
+                href="https://github.com/danielk0121/buddhist-app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-link-text"
+              >
+                github.com/danielk0121/buddhist-app
+              </a>
+            </li>
           </ul>
         </section>
 
