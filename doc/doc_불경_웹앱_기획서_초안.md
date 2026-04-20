@@ -42,8 +42,8 @@
 
 GitHub 저장소 `danielk0121/buddhist` 의 마크다운 파일을 기반으로 한다.
 
-- `src/sutra/` — 경전 원문 기반 문서 (45종)
-- `src/essay/` — 수필 형식 재구성 문서 (45종)
+- `webapp/sutra/` — 경전 원문 기반 문서 (45종)
+- `webapp/essay/` — 수필 형식 재구성 문서 (45종)
 
 ### 2.2 경전 목록 (45종)
 
@@ -224,18 +224,18 @@ CREATE TABLE comment (
 ### 5.4 더미 API 인터페이스 (추후 Supabase 교체 대상)
 
 ```javascript
-// src/api/dummy/auth.js
+// webapp/api/dummy/auth.js
 export const signUp = async (email, password) => { /* dummy */ }
 export const signIn = async (email, password) => { /* dummy */ }
 export const signOut = async () => { /* dummy */ }
 export const getSession = () => { /* dummy */ }
 
-// src/api/dummy/bookmark.js
+// webapp/api/dummy/bookmark.js
 export const getBookmarks = async (userId) => { /* dummy */ }
 export const addBookmark = async (userId, sutraId) => { /* dummy */ }
 export const removeBookmark = async (userId, sutraId) => { /* dummy */ }
 
-// src/api/dummy/comment.js
+// webapp/api/dummy/comment.js
 export const getComments = async (targetType, targetId) => { /* dummy */ }
 export const postComment = async (payload) => { /* dummy */ }
 ```
@@ -282,7 +282,7 @@ buddhist-essay/
 ├── public/
 │   ├── favicon/
 │   └── og-default.png
-├── src/
+├── webapp/
 │   ├── api/
 │   │   ├── dummy/         # 더미 API (auth, bookmark, comment)
 │   │   └── supabase/      # 추후 실 연동
